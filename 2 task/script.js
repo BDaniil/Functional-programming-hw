@@ -87,6 +87,7 @@ console.log(arr.find(num => num > 0));
 //indexOf is a method that does not accept a callback, so the call is slightly different
 
 let indexOfReducer = num => num === numIndexOf;
+
 let numIndexOf = 0;
 let fromIndexOf = 4;
 
