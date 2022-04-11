@@ -27,6 +27,11 @@ const obj = {
 };
 
 const createDeepCopy = object => {
+  
+  if (object === null){
+    return object
+  }
+
   if (object instanceof Date) {
     return new Date(object.getTime()); 
   }
@@ -35,9 +40,9 @@ const createDeepCopy = object => {
     return object; 
   }
 
-  let objectCopy = Array.isArray(object) ? [] : {};
+  const objectCopy = Array.isArray(object) ? [] : {};
 
-  for (let key in object) {
+  for (const key in object) {
     const value = object[key];
     objectCopy[key] = createDeepCopy(value); 
   }
@@ -45,7 +50,7 @@ const createDeepCopy = object => {
   return objectCopy;
 };
 
-let objDeepCopied = createDeepCopy(obj);
+const objDeepCopied = createDeepCopy(obj);
 
 objDeepCopied.name = "Daniel";
 objDeepCopied.skills.school.position = "graduated";
